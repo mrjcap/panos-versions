@@ -1,5 +1,19 @@
 [
   {
+    "version": "10.2.9-h9",
+    "size-kb": "545199",
+    "released-on": "2024/08/01 10:31:30",
+    "latest": "no",
+    "sha256": "eec51f3b97db5b1bdc9462364546c9f2197188ab3daa98451c4eb390883cca2b"
+  },
+  {
+    "version": "10.2.10-h3",
+    "size-kb": "547253",
+    "released-on": "2024/07/31 09:19:52",
+    "latest": "no",
+    "sha256": "9d603ab1722d91535e94abeaac938310e8b3bdc45f0aaf3f104447b4cd125c83"
+  },
+  {
     "version": "11.1.2-h9",
     "size-kb": "906044",
     "released-on": "2024/07/31 08:36:02",
