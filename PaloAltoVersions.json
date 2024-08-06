@@ -1,5 +1,12 @@
 [
   {
+    "version": "11.0.4-h5",
+    "size-kb": "829148",
+    "released-on": "2024/08/05 07:20:29",
+    "latest": "no",
+    "sha256": null
+  },
+  {
     "version": "11.2.2-h1",
     "size-kb": "767215",
     "released-on": "2024/08/02 15:58:14",
