@@ -7,6 +7,13 @@
     "sha256": null
   },
   {
+    "version": "11.1.4-h4",
+    "size-kb": "969439",
+    "released-on": "2024/10/03 10:36:45",
+    "latest": "no",
+    "sha256": null
+  },
+  {
     "version": "10.1.14-h4",
     "size-kb": "484419",
     "released-on": "2024/10/02 13:59:55",
