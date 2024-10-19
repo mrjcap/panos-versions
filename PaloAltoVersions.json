@@ -7,6 +7,13 @@
     "sha256": null
   },
   {
+    "version": "10.2.10-h7",
+    "size-kb": "547157",
+    "released-on": "2024/10/11 05:54:29",
+    "latest": "no",
+    "sha256": "4d19a297650ce924b5d180f41a0889b9b44a1ba8c2f45ea915d8e5a12ab42654"
+  },
+  {
     "version": "11.0.6",
     "size-kb": "875200",
     "released-on": "2024/10/07 05:54:45",
