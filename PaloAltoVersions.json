@@ -58,7 +58,7 @@
   {
     "version": "10.2.10-h7",
     "size-kb": "547157",
-    "released-on": "2024/10/11 05:54:29",
+    "released-on": "2024/10/11 03:54:29",
     "latest": "no",
     "sha256": "4d19a297650ce924b5d180f41a0889b9b44a1ba8c2f45ea915d8e5a12ab42654"
   },
@@ -478,7 +478,7 @@
   {
     "version": "10.2.9-h1",
     "size-kb": "482459",
-    "released-on": "2024/04/14 06:42:45",
+    "released-on": "2024/04/14 04:42:45",
     "latest": "no",
     "sha256": "fdbef0bdf0d62de0b4218c50354f588f8d100ed0dbe67d884a92bf19e88ff744"
   },
