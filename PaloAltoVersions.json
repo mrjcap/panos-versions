@@ -1,5 +1,26 @@
 [
   {
+    "version": "10.2.9-h19",
+    "size-kb": "545193",
+    "released-on": "2024/12/26 07:47:22",
+    "latest": "no",
+    "sha256": "9eb44f28c6c044356620afc67c4577b2a610171676c26fada45f7712fc59f6f7"
+  },
+  {
+    "version": "10.2.10-h12",
+    "size-kb": "548180",
+    "released-on": "2024/12/26 05:00:50",
+    "latest": "no",
+    "sha256": "c76fe54cb958984c1c836080e7760d31ecfcc6d16d4ca9d63753dcfc67ebba6b"
+  },
+  {
+    "version": "10.1.14-h8",
+    "size-kb": "434236",
+    "released-on": "2024/12/26 04:30:28",
+    "latest": "no",
+    "sha256": "1e4a21663250de84ff9091bf10aa52ec988bf1a9d5f38092ad8a9a61ac5ad264"
+  },
+  {
     "version": "10.2.13-h1",
     "size-kb": "515030",
     "released-on": "2024/12/20 11:26:11",
@@ -87,6 +108,20 @@
     "version": "11.2.3-h5",
     "size-kb": "1068015",
     "released-on": "2024/12/04 15:55:14",
+    "latest": "no",
+    "sha256": null
+  },
+  {
+    "version": "11.1.2-h16",
+    "size-kb": "914824",
+    "released-on": "2024/12/04 01:17:16",
+    "latest": "no",
+    "sha256": null
+  },
+  {
+    "version": "11.1.3-h13",
+    "size-kb": "963594",
+    "released-on": "2024/11/26 06:19:44",
     "latest": "no",
     "sha256": null
   },
