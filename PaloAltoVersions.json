@@ -1,5 +1,33 @@
 [
   {
+    "version": "10.2.12-h4",
+    "size-kb": "574407",
+    "released-on": "2024/12/30 05:07:48",
+    "latest": "no",
+    "sha256": "4d4f6ec8a26ad70ee070065aa8af2aed2247db6cac6b95b413fd014e657afe80"
+  },
+  {
+    "version": "10.2.13-h2",
+    "size-kb": "514926",
+    "released-on": "2024/12/27 07:11:06",
+    "latest": "no",
+    "sha256": "fe64fc2b0af4856d920627ff78572f6884c036a63a8143e32d27a7473f5cedf5"
+  },
+  {
+    "version": "10.2.11-h10",
+    "size-kb": "574278",
+    "released-on": "2024/12/27 07:07:45",
+    "latest": "no",
+    "sha256": "5ecbe8397653202842ff0a559aa6dd6c6adb7696b2329bbf8b653f365c8ab619"
+  },
+  {
+    "version": "10.2.8-h19",
+    "size-kb": "484317",
+    "released-on": "2024/12/27 06:55:29",
+    "latest": "no",
+    "sha256": "d3ed46951861430ee351d58eb86a215d6e67d34cfec800c633abf24239afa5de"
+  },
+  {
     "version": "10.2.9-h19",
     "size-kb": "545193",
     "released-on": "2024/12/26 07:47:22",
