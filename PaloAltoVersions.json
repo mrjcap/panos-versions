@@ -1,5 +1,19 @@
 [
   {
+    "version": "11.1.6-h4",
+    "size-kb": "1078083",
+    "released-on": "2025/03/11 09:27:18",
+    "latest": "no",
+    "sha256": null
+  },
+  {
+    "version": "11.1.4-h15",
+    "size-kb": "944834",
+    "released-on": "2025/03/11 07:23:46",
+    "latest": "no",
+    "sha256": null
+  },
+  {
     "version": "10.2.13-h5",
     "size-kb": "572700",
     "released-on": "2025/02/28 16:37:31",
