@@ -4,14 +4,14 @@
     "size-kb": "984104",
     "released-on": "2025/07/23 12:08:48",
     "latest": "no",
-    "sha256": null
+    "sha256": "27e16b0c3b468804d6dca55518cf1673005d316541a4c4bf1ab6a482083d2f6c"
   },
   {
     "version": "11.2.4-h10",
     "size-kb": "968178",
     "released-on": "2025/07/17 09:54:42",
     "latest": "no",
-    "sha256": null
+    "sha256": "7e549b2188157b3a4748ee62d98bd26dc06443b2e07a1ff769e530d5961869ad"
   },
   {
     "version": "10.1.14-h16",
@@ -32,21 +32,21 @@
     "size-kb": "1004983",
     "released-on": "2025/06/30 13:13:30",
     "latest": "no",
-    "sha256": null
+    "sha256": "cfc336180f3a6d56556041c41f0fb2e218452f4c242109a087749efb870f11e9"
   },
   {
     "version": "11.1.6-h14",
     "size-kb": "962881",
     "released-on": "2025/06/27 09:28:29",
     "latest": "no",
-    "sha256": null
+    "sha256": "36e0f1953a591b423e68cbcbf978748df82ad25047726267aa4b1a5043223253"
   },
   {
     "version": "11.2.7",
     "size-kb": "983032",
     "released-on": "2025/06/18 08:33:31",
     "latest": "yes",
-    "sha256": null
+    "sha256": "86ad1228cd251b98a9c542b435d9e50606f4e65f3b67c0bbf6ada97b23308e4f"
   },
   {
     "version": "10.2.16",
@@ -67,7 +67,7 @@
     "size-kb": "968158",
     "released-on": "2025/06/09 12:32:17",
     "latest": "no",
-    "sha256": null
+    "sha256": "ca3926797675ec351904add0748e699173b6fe06e3165c234b5e7332dd73f066"
   },
   {
     "version": "10.2.13-h10",
@@ -88,14 +88,14 @@
     "size-kb": "945953",
     "released-on": "2025/05/21 22:20:55",
     "latest": "no",
-    "sha256": null
+    "sha256": "0050e3ac11f22465cfd235f4f817061e6d103c11917b6efe5e60612f760ef638"
   },
   {
     "version": "11.1.10",
     "size-kb": "1005193",
     "released-on": "2025/05/20 08:47:15",
     "latest": "no",
-    "sha256": null
+    "sha256": "e9c6a58dcedb6f6901fe6ebed603d6c659cdaf056b7feaa10020fa16d5502719"
   },
   {
     "version": "10.2.15",
@@ -109,14 +109,14 @@
     "size-kb": "962710",
     "released-on": "2025/05/15 08:19:08",
     "latest": "no",
-    "sha256": null
+    "sha256": "8cf889b18d54294e0dfe4fe04d98392b578c4c647b606968181887eb4f50d99d"
   },
   {
     "version": "11.2.6",
     "size-kb": "979359",
     "released-on": "2025/05/07 10:12:09",
     "latest": "no",
-    "sha256": null
+    "sha256": "c39234111268a17244dc5122dfc583cdf1e1c2419dd7fd88754c5cf9c0e04bb1"
   },
   {
     "version": "10.1.14-h14",
@@ -130,28 +130,28 @@
     "size-kb": "945992",
     "released-on": "2025/04/24 11:16:34",
     "latest": "no",
-    "sha256": null
+    "sha256": "c588dfb394591b174bf6d46d508fb04086a96193ba2de58a3d5586a89d995f11"
   },
   {
     "version": "11.1.9",
     "size-kb": "1005026",
     "released-on": "2025/04/21 12:26:13",
     "latest": "no",
-    "sha256": null
+    "sha256": "4e6504f405a83dde5da57d250609c9681835459ad09e9966c2135592aa5b6f4b"
   },
   {
     "version": "11.1.6-h7",
     "size-kb": "962844",
     "released-on": "2025/04/21 11:57:00",
     "latest": "no",
-    "sha256": null
+    "sha256": "fa3ec6bb75bdb283096ade58d70fc2a265fe7cd7b88871ef0cdd555c6d379882"
   },
   {
     "version": "11.1.4-h18",
     "size-kb": "944901",
     "released-on": "2025/04/17 11:16:13",
     "latest": "no",
-    "sha256": null
+    "sha256": "ab3cbee24c512bcd627a0c4ab39056798c6304c87eb71d0be6fd6668ba89ae5c"
   },
   {
     "version": "10.2.14-h1",
@@ -193,21 +193,21 @@
     "size-kb": "944812",
     "released-on": "2025/04/01 18:20:47",
     "latest": "no",
-    "sha256": null
+    "sha256": "9879ac377794cc8f3334d8dd53005b6b441b2204341af4b8178ab9b1b67c522d"
   },
   {
     "version": "11.1.6-h6",
     "size-kb": "962765",
     "released-on": "2025/03/27 17:45:21",
     "latest": "no",
-    "sha256": null
+    "sha256": "fd7b9465dad0693af5c985d9815d24d3faf5586df5171ec77f5e932418f48183"
   },
   {
     "version": "11.2.4-h6",
     "size-kb": "946034",
     "released-on": "2025/03/27 12:02:43",
     "latest": "no",
-    "sha256": null
+    "sha256": "062cf5b562affccb8b519ec6447a614aa5d1d03b802145087a402fc7380d7dbc"
   },
   {
     "version": "10.2.10-h17",
@@ -221,21 +221,21 @@
     "size-kb": "1110533",
     "released-on": "2025/03/19 07:15:58",
     "latest": "no",
-    "sha256": null
+    "sha256": "c23b0b4255e0288cfa55f0fcecf21fbf19e7a13e6c45d624c0a87e72b6ef2f8e"
   },
   {
     "version": "11.1.6-h4",
     "size-kb": "1078083",
     "released-on": "2025/03/11 09:27:18",
     "latest": "no",
-    "sha256": null
+    "sha256": "5293f46cb163e7c6c05ccb700a7e21ec88102b2c9c41367a644307b40bc4216c"
   },
   {
     "version": "11.1.4-h15",
     "size-kb": "944834",
     "released-on": "2025/03/11 07:23:46",
     "latest": "no",
-    "sha256": null
+    "sha256": "f57787f0e24f2c2956ace64f0dd319eacafad7b5288b683868a9049837a2bb8c"
   },
   {
     "version": "10.2.13-h5",
@@ -263,35 +263,35 @@
     "size-kb": "1082512",
     "released-on": "2025/02/21 16:55:51",
     "latest": "no",
-    "sha256": null
+    "sha256": "4e50ef34f5081b8e4fc416d9661857277ac41e5168badcc86dfc23415ebbd8cb"
   },
   {
     "version": "11.1.6-h3",
     "size-kb": "1069315",
     "released-on": "2025/02/20 18:46:13",
     "latest": "no",
-    "sha256": null
+    "sha256": "2922fb4f84c5cd85cdaf53d80d68f359595de05742809e4eaa69ac42891ee2ad"
   },
   {
     "version": "11.2.5",
     "size-kb": "1104786",
     "released-on": "2025/02/20 11:44:57",
     "latest": "no",
-    "sha256": null
+    "sha256": "e14f896686d7d13e0f0b871e159117149cbd1ebf0eaa55e2f9547f251f2607ff"
   },
   {
     "version": "11.1.4-h13",
     "size-kb": "953826",
     "released-on": "2025/02/20 06:59:43",
     "latest": "no",
-    "sha256": null
+    "sha256": "86e474c7f0dc7e7180b24e2a6f1ac97a27094c05b35d10589ea85e1eaa85c3fb"
   },
   {
     "version": "11.1.2-h18",
     "size-kb": "906423",
     "released-on": "2025/02/18 10:46:57",
     "latest": "no",
-    "sha256": null
+    "sha256": "885a379027590b2cdad4d407f6fb0d3f1c39660771f04fc45e61f98122ebd3c8"
   },
   {
     "version": "10.2.10-h14",
@@ -361,14 +361,14 @@
     "size-kb": "1082551",
     "released-on": "2025/02/04 10:26:16",
     "latest": "no",
-    "sha256": null
+    "sha256": "e4b80ecdc1a517075ea57ed838fda3bff294b7e1dbd6bb134adf6c8042136bd0"
   },
   {
     "version": "11.1.6-h1",
     "size-kb": "1069309",
     "released-on": "2025/01/31 07:51:10",
     "latest": "no",
-    "sha256": null
+    "sha256": "1869b97827c1efe8e852da0c32c9427800fcd5b79df48a6a1a84951469631e62"
   },
   {
     "version": "10.2.13-h3",
@@ -473,7 +473,7 @@
     "size-kb": "1057343",
     "released-on": "2024/12/12 13:00:21",
     "latest": "no",
-    "sha256": null
+    "sha256": "213075b8b9ba942dab69ffa9d16b4bd6d35d787156aef719776bd5ffecb356c1"
   },
   {
     "version": "10.2.13",
@@ -501,35 +501,35 @@
     "size-kb": "1077817",
     "released-on": "2024/12/05 09:45:44",
     "latest": "no",
-    "sha256": null
+    "sha256": "9cfcd759371ef0707e88be7e7879724efc835a80eae416ff7f0b93ea53c2e480"
   },
   {
     "version": "11.2.4-h2",
     "size-kb": "1004887",
     "released-on": "2024/12/04 16:09:44",
     "latest": "no",
-    "sha256": null
+    "sha256": "40f2f45dcc0f66d42cfd4201a1e7ab271d4a87ec471ebef4625fc9bd4dd3cf3c"
   },
   {
     "version": "11.2.3-h5",
     "size-kb": "1068015",
     "released-on": "2024/12/04 15:55:14",
     "latest": "no",
-    "sha256": null
+    "sha256": "7b7b643c22c3de89ee6b8aada71524d93244686ee95f761935214a67b5d837dd"
   },
   {
     "version": "11.1.2-h16",
     "size-kb": "914824",
     "released-on": "2024/12/04 01:17:16",
     "latest": "no",
-    "sha256": null
+    "sha256": "08274194544a982cb77bebfe3d96009b9eafddaf77e98edc1d9c0e6047864787"
   },
   {
     "version": "11.1.3-h13",
     "size-kb": "963594",
     "released-on": "2024/11/26 06:19:44",
     "latest": "no",
-    "sha256": null
+    "sha256": "c06b9d0df6078e7a08e6aa42cab792dade83ed14725851a4b84f81a753e2b0fa"
   },
   {
     "version": "10.1.6-h9",
@@ -557,21 +557,21 @@
     "size-kb": "1072756",
     "released-on": "2024/11/17 11:12:10",
     "latest": "no",
-    "sha256": null
+    "sha256": "bb295b4b491147a5f98f5a9bc55be780b4462d44a9c5c5fb01beda2ca60cec43"
   },
   {
     "version": "11.2.1-h1",
     "size-kb": "648329",
     "released-on": "2024/11/17 10:44:00",
     "latest": "no",
-    "sha256": null
+    "sha256": "3f3b5e6d9dc7025d869b935114313c0766c807bf9168e6b930bfccadc1338fef"
   },
   {
     "version": "11.2.0-h1",
     "size-kb": "457448",
     "released-on": "2024/11/17 10:22:41",
     "latest": "no",
-    "sha256": null
+    "sha256": "70eb0b2f16cc49912d9098ccb362bd0bc5cee3eaee7dc8a3448ce5a6eb13a6d8"
   },
   {
     "version": "10.1.12-h3",
@@ -613,28 +613,28 @@
     "size-kb": "802179",
     "released-on": "2024/11/17 06:12:53",
     "latest": "no",
-    "sha256": null
+    "sha256": "02021daa092aba540f5218776384b7d15451b3fe16f8b095c19fb97bd7618902"
   },
   {
     "version": "11.0.5-h2",
     "size-kb": "861566",
     "released-on": "2024/11/17 06:02:01",
     "latest": "no",
-    "sha256": null
+    "sha256": "f3b3d9ee27f477602a3cfa1256aaca1a99a02d2a603e5a3238ac3d7ae5e2d107"
   },
   {
     "version": "11.0.4-h6",
     "size-kb": "828811",
     "released-on": "2024/11/17 05:01:10",
     "latest": "no",
-    "sha256": null
+    "sha256": "9d453deb7421734ea65d560fc4d793b9990ae1cc9d941b39dd9fadc4b79f3a04"
   },
   {
     "version": "11.1.1-h2",
     "size-kb": "671659",
     "released-on": "2024/11/17 04:46:08",
     "latest": "no",
-    "sha256": null
+    "sha256": "b462b216e9183c1adc40b83b918be203ff5b8bb5329a177cd68623b9e122e894"
   },
   {
     "version": "10.2.6-h6",
@@ -648,28 +648,28 @@
     "size-kb": "744213",
     "released-on": "2024/11/16 15:05:11",
     "latest": "no",
-    "sha256": null
+    "sha256": "91c8fa9ea09f61eeddd358fef7be0c9133cbc596b21b77645df272395bd702bc"
   },
   {
     "version": "11.0.2-h5",
     "size-kb": "723785",
     "released-on": "2024/11/16 13:14:48",
     "latest": "no",
-    "sha256": null
+    "sha256": "df9686bf60e4bfc1c4e33b28e63947dd5c8e408791f97d43e94942ed614c0481"
   },
   {
     "version": "11.0.1-h5",
     "size-kb": "572949",
     "released-on": "2024/11/16 12:24:28",
     "latest": "no",
-    "sha256": null
+    "sha256": "780e26b2821853a6e94f43a149b233f0d25b2eb1186ad56d80f712cac633e919"
   },
   {
     "version": "11.0.0-h4",
     "size-kb": "411656",
     "released-on": "2024/11/16 10:53:32",
     "latest": "no",
-    "sha256": null
+    "sha256": "86e8159ec0b4c87db921b7f189666dfdf011d8ea80e804e456ee5bd96a6b7288"
   },
   {
     "version": "10.1.14-h6",
@@ -683,35 +683,35 @@
     "size-kb": "1050721",
     "released-on": "2024/11/16 05:28:53",
     "latest": "no",
-    "sha256": null
+    "sha256": "9e5bfe63a79c7efb381dbc039337c017a38f850ae35c6b9606eded1a67c52129"
   },
   {
     "version": "11.1.3-h11",
     "size-kb": "1033079",
     "released-on": "2024/11/16 05:17:17",
     "latest": "no",
-    "sha256": null
+    "sha256": "2dcf2e28c2d25a548eeaf9457935d4372e2249d61a44ae93f60e653ffbe481b4"
   },
   {
     "version": "11.1.2-h15",
     "size-kb": "835189",
     "released-on": "2024/11/16 05:13:01",
     "latest": "no",
-    "sha256": null
+    "sha256": "544f6144c533e13d6f7511a7fcb21736111f8a9391eed8d720d8c395abbe64cd"
   },
   {
     "version": "11.1.0-h4",
     "size-kb": "564201",
     "released-on": "2024/11/16 05:12:14",
     "latest": "no",
-    "sha256": null
+    "sha256": "860a3f772a7582b07807baa10d01a1f07c9d9d223a53316c075b5adb5ef3eac4"
   },
   {
     "version": "11.1.4-h7",
     "size-kb": "969819",
     "released-on": "2024/11/16 03:25:12",
     "latest": "no",
-    "sha256": null
+    "sha256": "a79a5421845ecd6c126e943b789f6db993e5703bcad177e8866b1069d20ce91d"
   },
   {
     "version": "10.2.1-h3",
@@ -732,14 +732,14 @@
     "size-kb": "1000261",
     "released-on": "2024/11/15 13:22:40",
     "latest": "no",
-    "sha256": null
+    "sha256": "fa65b88900211bcffa8ce87659d78067b653c68c3e7bb0add8f35af1a51f3ede"
   },
   {
     "version": "11.2.2-h2",
     "size-kb": "767025",
     "released-on": "2024/11/15 13:21:28",
     "latest": "no",
-    "sha256": null
+    "sha256": "b1ddbcecd7b41a25f409c3d3505a520eb13e78d439bd9bb125f77ff6311b4f82"
   },
   {
     "version": "10.2.4-h32",
@@ -816,14 +816,14 @@
     "size-kb": "1072805",
     "released-on": "2024/11/05 11:13:12",
     "latest": "no",
-    "sha256": null
+    "sha256": "1374e0c7a858e24126d179e1f0046f81c1e5a6ae23a30810d3306cecaf4ba4d4"
   },
   {
     "version": "11.1.3-h10",
     "size-kb": "1032647",
     "released-on": "2024/10/30 09:41:13",
     "latest": "no",
-    "sha256": null
+    "sha256": "f8f2c9d95f009111e5425c60d8d31d4618c13911eb8d8fe8051887d6fa625ed2"
   },
   {
     "version": "10.2.12-h1",
@@ -837,7 +837,7 @@
     "size-kb": "906348",
     "released-on": "2024/10/24 06:48:36",
     "latest": "no",
-    "sha256": null
+    "sha256": "b8b5bf50335df5ad4af66ec8b45cedec507362cd4f1822b14b661204ba545a1e"
   },
   {
     "version": "10.2.7-h16",
@@ -872,7 +872,7 @@
     "size-kb": "986579",
     "released-on": "2024/10/17 03:06:27",
     "latest": "no",
-    "sha256": null
+    "sha256": "f41efa20502e744b164d90477f5ed6de69a793553c4229a5bcb5febdfe519753"
   },
   {
     "version": "10.2.10-h7",
@@ -886,14 +886,14 @@
     "size-kb": "875200",
     "released-on": "2024/10/07 05:54:45",
     "latest": "no",
-    "sha256": null
+    "sha256": "cc86adb2622eb2ed0c951e98c3686c51e8a7f27411ede0b863163e1561d91709"
   },
   {
     "version": "11.1.4-h4",
     "size-kb": "969439",
     "released-on": "2024/10/03 06:36:45",
     "latest": "no",
-    "sha256": null
+    "sha256": "124cc9b6f90424df6a2358c379d330f134d0005dd0bbc7dc077dc58f35ec49a0"
   },
   {
     "version": "10.1.14-h4",
@@ -935,21 +935,21 @@
     "size-kb": "914511",
     "released-on": "2024/09/05 11:50:00",
     "latest": "no",
-    "sha256": null
+    "sha256": "b6697d0d1890bc40d9b69937efbb775951d509693870698abf2ca2857f360a24"
   },
   {
     "version": "11.1.2-h12",
     "size-kb": "906395",
     "released-on": "2024/09/05 09:07:35",
     "latest": "no",
-    "sha256": null
+    "sha256": "aca45ec242cf5a2403ee27014421d947cba4aeb8d35ebe12dd383975a4901b6f"
   },
   {
     "version": "11.2.3",
     "size-kb": "1076855",
     "released-on": "2024/09/05 06:38:34",
     "latest": "no",
-    "sha256": null
+    "sha256": "917a3c2b342ccf81c180272aa6da91af6f8bda25e25491ba4562d584621d8163"
   },
   {
     "version": "10.2.11-h1",
@@ -998,35 +998,35 @@
     "size-kb": "914526",
     "released-on": "2024/08/08 13:01:43",
     "latest": "no",
-    "sha256": null
+    "sha256": "e32959deb63d688b8dad66b8daf20a7a16a8262238480249f395ef84fb7c2380"
   },
   {
     "version": "11.1.4-h1",
     "size-kb": "1039916",
     "released-on": "2024/08/07 22:18:35",
     "latest": "no",
-    "sha256": null
+    "sha256": "7a22cc2799d5b8b9aa851d8dcaa6bbc85dbdd8bbcafa9f51b57a3382f8bc53b0"
   },
   {
     "version": "11.0.5-h1",
     "size-kb": "861744",
     "released-on": "2024/08/07 12:37:20",
     "latest": "no",
-    "sha256": null
+    "sha256": "116806c75d9c47e3882f217ee9c96decfa6f7ef56622d3de2413f095b0f5086b"
   },
   {
     "version": "11.0.4-h5",
     "size-kb": "829148",
     "released-on": "2024/08/05 07:20:29",
     "latest": "no",
-    "sha256": null
+    "sha256": "00fbb8bf446f59c8dd79538abbfcfcbe3eb9e06c9e44f18fc7f306605e58e600"
   },
   {
     "version": "11.2.2-h1",
     "size-kb": "767215",
     "released-on": "2024/08/02 15:58:14",
     "latest": "no",
-    "sha256": null
+    "sha256": "dc6bb08c42def20e54251f8b66c474e138f86371c223a67eacbaebf6b65293c0"
   },
   {
     "version": "10.2.9-h9",
@@ -1047,14 +1047,14 @@
     "size-kb": "906044",
     "released-on": "2024/07/31 08:36:02",
     "latest": "no",
-    "sha256": null
+    "sha256": "cdfb36ca15514315716328cf3352ce69de77b0a1596823d0655aecc5934b0fc7"
   },
   {
     "version": "11.1.3-h2",
     "size-kb": "962876",
     "released-on": "2024/07/18 08:43:21",
     "latest": "no",
-    "sha256": null
+    "sha256": "af059832438b5d01f021dc8f66818015ec1ae1690540682685a7888762f113ef"
   },
   {
     "version": "10.2.10-h2",
@@ -1068,7 +1068,7 @@
     "size-kb": "514992",
     "released-on": "2024/07/08 12:04:42",
     "latest": "no",
-    "sha256": null
+    "sha256": "e01057f9aa1a80cf30752404cf7bb36b394d14df726af46750efa256f639560f"
   },
   {
     "version": "10.1.14-h2",
@@ -1082,7 +1082,7 @@
     "size-kb": "969338",
     "released-on": "2024/06/27 08:17:35",
     "latest": "no",
-    "sha256": null
+    "sha256": "1be2daf822958208b5625911b183173362f051922127d03532a7d1e04a97503e"
   },
   {
     "version": "10.2.10",
@@ -1096,14 +1096,14 @@
     "size-kb": "861661",
     "released-on": "2024/06/21 08:32:43",
     "latest": "no",
-    "sha256": null
+    "sha256": "81574e3bbaaaf71862b468369b7dfa3811582bfd020d7c53c2380180a68fa015"
   },
   {
     "version": "11.1.3-h1",
     "size-kb": "914451",
     "released-on": "2024/06/06 07:13:54",
     "latest": "no",
-    "sha256": null
+    "sha256": "4c7fec29e02d6342e057887b132fc0f5bfdb85821837e56b398bdeb2115bb83e"
   },
   {
     "version": "10.1.14",
@@ -1131,7 +1131,7 @@
     "size-kb": "633598",
     "released-on": "2024/05/16 12:18:53",
     "latest": "no",
-    "sha256": null
+    "sha256": "40f63b65500e8c90d9fd223e0418aaed3d576183b5301bb0f12cbbe1ef40ea70"
   },
   {
     "version": "10.2.8-h4",
@@ -1145,21 +1145,21 @@
     "size-kb": "914521",
     "released-on": "2024/05/14 15:14:14",
     "latest": "no",
-    "sha256": null
+    "sha256": "15e1058633db29a434ee477b2f14bf399934c41edd6192c8f64e7262c66cc5df"
   },
   {
     "version": "11.1.2-h4",
     "size-kb": "772325",
     "released-on": "2024/05/09 05:24:32",
     "latest": "no",
-    "sha256": null
+    "sha256": "667d114f96e62cdefb9abde0f53604ef292a05f1e3aea77384465de25b5dde22"
   },
   {
     "version": "11.2.0",
     "size-kb": "1269247",
     "released-on": "2024/05/02 10:15:34",
     "latest": "no",
-    "sha256": null
+    "sha256": "7771ec3da10f5d9a2024ef864c7b4114e856f2c1d2254206a65b0e21f593c32f"
   },
   {
     "version": "10.1.13-h1",
@@ -1173,14 +1173,14 @@
     "size-kb": "523205",
     "released-on": "2024/04/18 09:30:02",
     "latest": "no",
-    "sha256": null
+    "sha256": "c0d1b7364ce1b7ebc758cd43bc6f078e5a9f8d432c97f85157c88ab3be77ccd5"
   },
   {
     "version": "11.0.0-h3",
     "size-kb": "348213",
     "released-on": "2024/04/18 09:04:00",
     "latest": "no",
-    "sha256": null
+    "sha256": "c38818934c7cee5a0f79b591a196598926686ab22e16c9505c18ff0247eabb6f"
   },
   {
     "version": "10.2.1-h2",
@@ -1222,7 +1222,7 @@
     "size-kb": "729327",
     "released-on": "2024/04/17 00:19:36",
     "latest": "no",
-    "sha256": null
+    "sha256": "2d215494f78b29f4a43a67618fdb4ef91da6a37dba28a417d454c812399066f5"
   },
   {
     "version": "10.2.5-h6",
@@ -1236,21 +1236,21 @@
     "size-kb": "404112",
     "released-on": "2024/04/16 08:51:55",
     "latest": "no",
-    "sha256": null
+    "sha256": "89417cbd514179a82b9493f97e5fc48342388ed92fab3027292107fa293cc84e"
   },
   {
     "version": "11.0.3-h10",
     "size-kb": "633585",
     "released-on": "2024/04/16 06:49:35",
     "latest": "no",
-    "sha256": null
+    "sha256": "deb04898e14987f2a6ec865c46b6f392fa0000ac4567b0064774e5273dd6fbda"
   },
   {
     "version": "11.1.1-h1",
     "size-kb": "609126",
     "released-on": "2024/04/16 06:17:52",
     "latest": "no",
-    "sha256": null
+    "sha256": "9f010806ecf391524dd3d29f590b69ba26506b9a5628d9041d655fae447f13bb"
   },
   {
     "version": "10.2.6-h3",
@@ -1264,7 +1264,7 @@
     "size-kb": "610746",
     "released-on": "2024/04/16 03:18:26",
     "latest": "no",
-    "sha256": null
+    "sha256": "1fb89b8323d9adc568a1ed344d86a0fce224e5d5b944b3203a6f2f9f071bdd89"
   },
   {
     "version": "10.2.7-h8",
@@ -1285,14 +1285,14 @@
     "size-kb": "729487",
     "released-on": "2024/04/14 08:42:03",
     "latest": "no",
-    "sha256": null
+    "sha256": "336f2e187a46bdccde75fcb91466d0ad25710c19bda7d00863cdf04079cfd0ec"
   },
   {
     "version": "11.1.2-h3",
     "size-kb": "772258",
     "released-on": "2024/04/14 08:08:11",
     "latest": "no",
-    "sha256": null
+    "sha256": "552a6b899e56ef0f7d69efb652ea9e4d42e597750472c441edab49afaa6c5507"
   },
   {
     "version": "10.2.9-h1",
@@ -1306,7 +1306,7 @@
     "size-kb": "729484",
     "released-on": "2024/04/08 12:29:05",
     "latest": "no",
-    "sha256": null
+    "sha256": "a31301e86abdcef3e31eedfe6b33b9095e59d07d1530d05cbf76ae72d05ec1d3"
   },
   {
     "version": "10.2.9",
@@ -1320,7 +1320,7 @@
     "size-kb": "772226",
     "released-on": "2024/03/13 07:08:43",
     "latest": "no",
-    "sha256": null
+    "sha256": "ef3242a5bdc95deae75d0a8d2e0fb51bee791b552399de2231c06af8c130a5d9"
   },
   {
     "version": "10.1.13",
@@ -1355,14 +1355,14 @@
     "size-kb": "609655",
     "released-on": "2024/02/25 18:54:22",
     "latest": "no",
-    "sha256": null
+    "sha256": "08216a09a9d05376e25230dd03f7d0ee4fc301d977d2fb8998e66650350e1e55"
   },
   {
     "version": "11.0.3-h5",
     "size-kb": "633626",
     "released-on": "2024/02/22 08:13:06",
     "latest": "no",
-    "sha256": null
+    "sha256": "ae715c4ef97c893ae15ddf8139480d1015e1585cadb349ef9abbef7c3411d077"
   },
   {
     "version": "10.2.8",
@@ -1390,28 +1390,28 @@
     "size-kb": "633559",
     "released-on": "2024/01/15 03:40:49",
     "latest": "no",
-    "sha256": null
+    "sha256": "23986def3ef012b0afeedb1aadcc8ab930cd7722354f12ed99a62f04ed2998cf"
   },
   {
     "version": "11.0.2-h3",
     "size-kb": "610816",
     "released-on": "2024/01/10 12:21:48",
     "latest": "no",
-    "sha256": null
+    "sha256": "6ac826397b24b6a21239a21d9d23cf2a912bf0897f23a7d5bdb493574b82c94b"
   },
   {
     "version": "11.1.0-h2",
     "size-kb": "397514",
     "released-on": "2024/01/07 16:54:10",
     "latest": "no",
-    "sha256": null
+    "sha256": "2820aeab0f3a6032bd22a21fcf6fb2cb94c3b7c3bf9b56c58374dd4bf562ee29"
   },
   {
     "version": "11.0.1-h3",
     "size-kb": "523186",
     "released-on": "2024/01/06 14:50:15",
     "latest": "no",
-    "sha256": null
+    "sha256": "29d81167e91da1e4130ae7d2d1563b15de0ad9daf84997442ba45f8674a11807"
   },
   {
     "version": "10.0.11-h4",
@@ -1530,7 +1530,7 @@
     "size-kb": "341793",
     "released-on": "2023/12/28 09:47:43",
     "latest": "no",
-    "sha256": null
+    "sha256": "245a41e6849363972d3d3213d354e77e9effe699d1c057ad6422a006f346eb02"
   },
   {
     "version": "10.1.9-h8",
@@ -1565,7 +1565,7 @@
     "size-kb": "602790",
     "released-on": "2023/12/26 06:11:16",
     "latest": "no",
-    "sha256": null
+    "sha256": "c3787ca3d65155725cc5572692a3663000a3fb0ceb34ecbadb4e92e69a02b026"
   },
   {
     "version": "10.1.4-h6",
@@ -1726,21 +1726,21 @@
     "size-kb": "341791",
     "released-on": "2023/11/06 17:10:13",
     "latest": "no",
-    "sha256": null
+    "sha256": "b2b70fd843acbb467f1a34a5360d3227638eca15dce1008d920bf6f228fbc259"
   },
   {
     "version": "11.0.3",
     "size-kb": "633532",
     "released-on": "2023/11/06 10:02:07",
     "latest": "no",
-    "sha256": null
+    "sha256": "7ad55ce44b3ece5132eba75a53e3d51f16c81e5f67dac97369e3b1aacaee4f54"
   },
   {
     "version": "11.1.0",
     "size-kb": "1242960",
     "released-on": "2023/11/02 12:01:56",
     "latest": "no",
-    "sha256": null
+    "sha256": "d42330e704a1523654568d30e60e4911787770b5f6b03d1f53daf63d7a86b84e"
   },
   {
     "version": "10.1.11-h1",
@@ -1775,7 +1775,7 @@
     "size-kb": "610687",
     "released-on": "2023/09/21 12:00:54",
     "latest": "no",
-    "sha256": null
+    "sha256": "467c197b7386ce5382dfc7921d924d26f270a60222c5eed616da8037c43d480f"
   },
   {
     "version": "10.2.5",
@@ -1789,7 +1789,7 @@
     "size-kb": "610427",
     "released-on": "2023/08/16 10:25:46",
     "latest": "no",
-    "sha256": null
+    "sha256": "1ae2a929ae94212191f955126cea8ac2357b70472cf83f5df80e7012d1665da1"
   },
   {
     "version": "10.1.10-h2",
@@ -1824,14 +1824,14 @@
     "size-kb": "610210",
     "released-on": "2023/06/28 10:13:00",
     "latest": "no",
-    "sha256": null
+    "sha256": "25ef5d9fecd93c93b53cd9418d33e3dbf50f396206a5cb3113e1bfaae2a4d32f"
   },
   {
     "version": "11.0.1-h2",
     "size-kb": "523205",
     "released-on": "2023/05/30 11:11:19",
     "latest": "no",
-    "sha256": null
+    "sha256": "75ca761506bc361a066629d9f6754e532117dc223806dfecac2bc6d674c10b00"
   },
   {
     "version": "10.2.4-h2",
@@ -1873,7 +1873,7 @@
     "size-kb": "522902",
     "released-on": "2023/03/29 15:05:41",
     "latest": "no",
-    "sha256": null
+    "sha256": "bd1cc912695921708eeaa856c2eb59c2d851988fb39661583c5583dff504ddce"
   },
   {
     "version": "10.1.9-h1",
@@ -1922,7 +1922,7 @@
     "size-kb": "919666",
     "released-on": "2022/11/17 04:45:06",
     "latest": "no",
-    "sha256": null
+    "sha256": "d46b53443519ba6efacdfbe1b53fe50b9c09a6e4c9420fd6d2bc7bca78da1687"
   },
   {
     "version": "9.1.15",
