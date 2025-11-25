@@ -1,5 +1,19 @@
 [
   {
+    "version": "10.2.16-h6",
+    "size-kb": "548891",
+    "released-on": "2025/11/24 09:31:25",
+    "latest": "no",
+    "sha256": "1ec0600a215a88b426d9e42abd2ac7e1a965a15b19c74a0b9e92278c3cbb360b"
+  },
+  {
+    "version": "11.2.4-h14",
+    "size-kb": "968321",
+    "released-on": "2025/11/21 13:06:42",
+    "latest": "no",
+    "sha256": "d33f3abfc1635ec0f56cc2b3aedcc41d47e2192f294b88f1afc5882e8d83c7e4"
+  },
+  {
     "version": "10.2.18",
     "size-kb": "564947",
     "released-on": "2025/11/10 09:55:13",
