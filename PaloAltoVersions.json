@@ -1,5 +1,40 @@
 [
   {
+    "version": "11.1.10-h10",
+    "size-kb": "1005413",
+    "released-on": "2025/12/02 12:02:54",
+    "latest": "no",
+    "sha256": "fd93bcde2de4080913896cf29a005b6bd2889da8111c10c0cba98eb466eb54b4"
+  },
+  {
+    "version": "11.1.6-h23",
+    "size-kb": "963005",
+    "released-on": "2025/12/02 10:51:47",
+    "latest": "no",
+    "sha256": "5de531985c9e7bde5cc48d81e6932e728217e488b0057ac6cf03a592d8fa0e88"
+  },
+  {
+    "version": "11.1.4-h27",
+    "size-kb": "945128",
+    "released-on": "2025/12/02 10:30:59",
+    "latest": "no",
+    "sha256": "342b204bb4ffd18fd5b5f0f705f5314dd93982211c09bbedd08dcf95cf414895"
+  },
+  {
+    "version": "11.2.10-h1",
+    "size-kb": "1008821",
+    "released-on": "2025/12/02 00:13:33",
+    "latest": "no",
+    "sha256": "519d0955fc27b8f599d07e5c4b5f3e90c8983c7443c994468e7d485f336a0fff"
+  },
+  {
+    "version": "11.1.13",
+    "size-kb": "1017933",
+    "released-on": "2025/12/01 22:10:56",
+    "latest": "no",
+    "sha256": "ad82537d03e51d5477ec3d5a38af5630cf8966aa251cd49aac7543a65ba470ac"
+  },
+  {
     "version": "12.1.3-h3",
     "size-kb": "602832",
     "released-on": "2025/12/01 10:11:05",
