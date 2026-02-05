@@ -94,4 +94,31 @@ To validate the schema:
 
 ---
 
+## 🤖 Automated endoflife.date Updates
+
+A GitHub Actions workflow automatically creates pull requests to update [endoflife.date](https://github.com/endoflife-date/endoflife.date) whenever new PAN-OS versions are pushed to this repository.
+
+### How it works
+
+1. On every push to `PaloAltoVersions.json`, the workflow runs `.github/scripts/update_panos_endoflife.py`
+2. The script compares versions in the JSON with the current state of [`products/pan-os.md`](https://github.com/endoflife-date/endoflife.date/blob/master/products/pan-os.md) in the upstream repository
+3. If a newer version is found for any release cycle, and no open `[pan-os]` PR already exists, it creates a PR with the updated version, release date, and release notes link
+4. If an open PR already exists, it skips to avoid duplicates
+
+### Manual trigger
+
+The workflow can also be triggered manually from the Actions tab or via CLI:
+
+```bash
+gh workflow run update-endoflife.yml --repo mrjcap/panos-versions
+```
+
+### Required secret
+
+| Secret | Scope | Purpose |
+|---|---|---|
+| `ENDOFLIFE_PAT` | `public_repo` | Push to fork and create PRs against upstream |
+
+---
+
 Maintained for reference, version visibility, and automation integration.
