@@ -1,0 +1,121 @@
+name: Update endoflife.date PAN-OS
+
+on:
+  push:
+    branches: [master]
+    paths: ['PaloAltoVersions.json']
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout panos-versions
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch pan-os.md from upstream
+        run: |
+          curl -sL -o pan-os.md \
+            https://raw.githubusercontent.com/endoflife-date/endoflife.date/master/products/pan-os.md
+
+      - name: Check for version updates
+        id: check
+        run: |
+          output=$(python .github/scripts/update_panos_endoflife.py \
+            --json PaloAltoVersions.json \
+            --md pan-os.md \
+            --output pan-os-updated.md)
+
+          first_line=$(echo "$output" | head -1)
+          if [ "$first_line" = "NO_UPDATES" ]; then
+            echo "has_updates=false" >> "$GITHUB_OUTPUT"
+            echo "No updates needed"
+          else
+            echo "has_updates=true" >> "$GITHUB_OUTPUT"
+            # Capture change summary (skip first UPDATES_FOUND line)
+            summary=$(echo "$output" | tail -n +2)
+            {
+              echo "summary<<EOF"
+              echo "$summary"
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+            echo "Updates found:"
+            echo "$summary"
+          fi
+
+      - name: Check for existing open PRs
+        if: steps.check.outputs.has_updates == 'true'
+        id: pr_check
+        env:
+          GH_TOKEN: ${{ secrets.ENDOFLIFE_PAT }}
+        run: |
+          count=$(gh pr list \
+            --repo endoflife-date/endoflife.date \
+            --state open \
+            --author mrjcap \
+            --search "[pan-os]" \
+            --json number \
+            --jq 'length')
+
+          if [ "$count" -gt "0" ]; then
+            echo "pr_exists=true" >> "$GITHUB_OUTPUT"
+            echo "Open PR already exists, skipping"
+          else
+            echo "pr_exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout fork
+        if: steps.check.outputs.has_updates == 'true' && steps.pr_check.outputs.pr_exists == 'false'
+        uses: actions/checkout@v4
+        with:
+          repository: mrjcap/endoflife.date
+          token: ${{ secrets.ENDOFLIFE_PAT }}
+          path: fork
+
+      - name: Create branch and apply changes
+        if: steps.check.outputs.has_updates == 'true' && steps.pr_check.outputs.pr_exists == 'false'
+        run: |
+          cd fork
+          git config user.name "Jay Cap"
+          git config user.email "3140504+mrjcap@users.noreply.github.com"
+
+          git fetch origin master
+          git checkout -B update-panos-versions origin/master
+
+          cp ../pan-os-updated.md products/pan-os.md
+          git add products/pan-os.md
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "[pan-os] Update PAN-OS version(s)"
+          git push -f origin update-panos-versions
+
+      - name: Create Pull Request
+        if: steps.check.outputs.has_updates == 'true' && steps.pr_check.outputs.pr_exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.ENDOFLIFE_PAT }}
+        run: |
+          gh pr create \
+            --repo endoflife-date/endoflife.date \
+            --base master \
+            --head mrjcap:update-panos-versions \
+            --title "[pan-os] Update PAN-OS version(s)" \
+            --body "$(cat <<EOF
+          ## Summary
+          Automated update of PAN-OS versions.
+
+          ### Changes
+          ${{ steps.check.outputs.summary }}
+
+          ---
+          Data sourced from [PaloAltoVersions.json](https://github.com/mrjcap/panos-versions/blob/master/PaloAltoVersions.json)
+          EOF
+          )"
