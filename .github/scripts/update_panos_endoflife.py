@@ -86,8 +86,12 @@ def load_json_versions(json_path):
 
     Returns dict: {"12.1": {"version": "12.1.4-h2", "date": "2026-02-04"}, ...}
     """
-    with open(json_path, encoding="utf-8") as f:
-        entries = json.load(f)
+    raw = open(json_path, "rb").read()
+    if raw[:2] in (b"\xff\xfe", b"\xfe\xff"):
+        text = raw.decode("utf-16")
+    else:
+        text = raw.decode("utf-8-sig")
+    entries = json.loads(text)
 
     cycles = {}
     for entry in entries:
