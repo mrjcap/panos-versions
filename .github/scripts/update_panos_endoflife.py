@@ -81,10 +81,19 @@ def build_release_notes_url(version_str):
     return None
 
 
+def _normalize_key(key):
+    """Convert PascalCase to kebab-case lowercase.
+
+    Examples: "Version" -> "version", "ReleasedOn" -> "released-on"
+    """
+    return re.sub(r"(?<=[a-z])(?=[A-Z])", "-", key).lower()
+
+
 def load_json_versions(json_path):
     """Load PaloAltoVersions.json and find the latest version per release cycle.
 
     Returns dict: {"12.1": {"version": "12.1.4-h2", "date": "2026-02-04"}, ...}
+    Accepts both PascalCase keys (from PowerShell) and kebab-case keys.
     """
     raw = open(json_path, "rb").read()
     if raw[:2] in (b"\xff\xfe", b"\xfe\xff"):
@@ -92,6 +101,9 @@ def load_json_versions(json_path):
     else:
         text = raw.decode("utf-8-sig")
     entries = json.loads(text)
+
+    # Normalize keys: PascalCase ("Version") -> kebab-case ("version")
+    entries = [{_normalize_key(k): v for k, v in e.items()} for e in entries]
 
     cycles = {}
     for entry in entries:
