@@ -69,6 +69,14 @@ jobs:
             echo "pr_exists=false" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Cleanup merged branch
+        if: steps.check.outputs.has_updates == 'true' && steps.pr_check.outputs.pr_exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.ENDOFLIFE_PAT }}
+        run: |
+          gh api repos/mrjcap/endoflife.date/git/refs/heads/update-panos-versions \
+            -X DELETE 2>/dev/null || true
+
       - name: Checkout fork
         if: steps.check.outputs.has_updates == 'true' && steps.pr_check.outputs.pr_exists == 'false'
         uses: actions/checkout@v4
