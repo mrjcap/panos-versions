@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git reflog:*)",
+      "Bash(git fsck:*)",
+      "Bash(while read _ _ hash)",
+      "Bash(do git cat-file -p $hash)",
+      "Bash(echo:*)",
+      "Bash(done)",
+      "Bash(git status:*)"
+    ]
+  }
+}
