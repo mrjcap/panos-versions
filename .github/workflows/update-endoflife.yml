@@ -9,6 +9,16 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      FORK_REPO: mrjcap/endoflife.date
+      UPSTREAM_REPO: endoflife-date/endoflife.date
+      UPSTREAM_BRANCH: master
+      PRODUCT_FILE: products/pan-os.md
+      BRANCH_NAME: update-panos-versions
+      PR_PREFIX: "[pan-os]"
+      JSON_FILE: PaloAltoVersions.json
+      SCRIPT_PATH: .github/scripts/update_panos_endoflife.py
+
     steps:
       - name: Checkout panos-versions
         uses: actions/checkout@v4
@@ -21,13 +31,13 @@ jobs:
       - name: Fetch pan-os.md from upstream
         run: |
           curl -sL -o pan-os.md \
-            https://raw.githubusercontent.com/endoflife-date/endoflife.date/master/products/pan-os.md
+            https://raw.githubusercontent.com/${{ env.UPSTREAM_REPO }}/${{ env.UPSTREAM_BRANCH }}/${{ env.PRODUCT_FILE }}
 
       - name: Check for version updates
         id: check
         run: |
-          output=$(python .github/scripts/update_panos_endoflife.py \
-            --json PaloAltoVersions.json \
+          output=$(python ${{ env.SCRIPT_PATH }} \
+            --json ${{ env.JSON_FILE }} \
             --md pan-os.md \
             --output pan-os-updated.md)
 
@@ -37,7 +47,6 @@ jobs:
             echo "No updates needed"
           else
             echo "has_updates=true" >> "$GITHUB_OUTPUT"
-            # Capture change summary (skip first UPDATES_FOUND line)
             summary=$(echo "$output" | tail -n +2)
             {
               echo "summary<<EOF"
@@ -46,6 +55,16 @@ jobs:
             } >> "$GITHUB_OUTPUT"
             echo "Updates found:"
             echo "$summary"
+
+            # Dynamic PR title suffix
+            count=$(echo "$summary" | wc -l)
+            if [ "$count" -eq 1 ]; then
+              title_suffix=$(echo "$summary" | sed 's/ -> / → /')
+            else
+              cycles=$(echo "$summary" | cut -d: -f1 | paste -sd ", ")
+              title_suffix="$cycles ($count cycles)"
+            fi
+            echo "title_suffix=$title_suffix" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Check for existing open PRs
@@ -55,10 +74,10 @@ jobs:
           GH_TOKEN: ${{ secrets.ENDOFLIFE_PAT }}
         run: |
           count=$(gh pr list \
-            --repo endoflife-date/endoflife.date \
+            --repo ${{ env.UPSTREAM_REPO }} \
             --state open \
-            --author mrjcap \
-            --search "[pan-os]" \
+            --author ${{ github.repository_owner }} \
+            --search "${{ env.PR_PREFIX }}" \
             --json number \
             --jq 'length')
 
@@ -74,14 +93,22 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.ENDOFLIFE_PAT }}
         run: |
-          gh api repos/mrjcap/endoflife.date/git/refs/heads/update-panos-versions \
+          gh api repos/${{ env.FORK_REPO }}/git/refs/heads/${{ env.BRANCH_NAME }} \
             -X DELETE 2>/dev/null || true
+
+      - name: Sync fork with upstream
+        if: steps.check.outputs.has_updates == 'true' && steps.pr_check.outputs.pr_exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.ENDOFLIFE_PAT }}
+        run: |
+          gh api repos/${{ env.FORK_REPO }}/merge-upstream \
+            -f branch=${{ env.UPSTREAM_BRANCH }}
 
       - name: Checkout fork
         if: steps.check.outputs.has_updates == 'true' && steps.pr_check.outputs.pr_exists == 'false'
         uses: actions/checkout@v4
         with:
-          repository: mrjcap/endoflife.date
+          repository: ${{ env.FORK_REPO }}
           token: ${{ secrets.ENDOFLIFE_PAT }}
           path: fork
 
@@ -89,22 +116,22 @@ jobs:
         if: steps.check.outputs.has_updates == 'true' && steps.pr_check.outputs.pr_exists == 'false'
         run: |
           cd fork
-          git config user.name "Jay Cap"
-          git config user.email "3140504+mrjcap@users.noreply.github.com"
+          git config user.name "${{ vars.GIT_NAME }}"
+          git config user.email "${{ vars.GIT_EMAIL }}"
 
-          git fetch origin master
-          git checkout -B update-panos-versions origin/master
+          git fetch origin ${{ env.UPSTREAM_BRANCH }}
+          git checkout -B ${{ env.BRANCH_NAME }} origin/${{ env.UPSTREAM_BRANCH }}
 
-          cp ../pan-os-updated.md products/pan-os.md
-          git add products/pan-os.md
+          cp ../pan-os-updated.md ${{ env.PRODUCT_FILE }}
+          git add ${{ env.PRODUCT_FILE }}
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
           fi
 
-          git commit -m "[pan-os] Update PAN-OS version(s)"
-          git push -f origin update-panos-versions
+          git commit -m "${{ env.PR_PREFIX }} Update ${{ steps.check.outputs.title_suffix }}"
+          git push -f origin ${{ env.BRANCH_NAME }}
 
       - name: Create Pull Request
         if: steps.check.outputs.has_updates == 'true' && steps.pr_check.outputs.pr_exists == 'false'
@@ -112,10 +139,10 @@ jobs:
           GH_TOKEN: ${{ secrets.ENDOFLIFE_PAT }}
         run: |
           gh pr create \
-            --repo endoflife-date/endoflife.date \
-            --base master \
-            --head mrjcap:update-panos-versions \
-            --title "[pan-os] Update PAN-OS version(s)" \
+            --repo ${{ env.UPSTREAM_REPO }} \
+            --base ${{ env.UPSTREAM_BRANCH }} \
+            --head ${{ github.repository_owner }}:${{ env.BRANCH_NAME }} \
+            --title "${{ env.PR_PREFIX }} Update ${{ steps.check.outputs.title_suffix }}" \
             --body "$(cat <<EOF
           ## Summary
           Automated update of PAN-OS versions.
@@ -124,6 +151,6 @@ jobs:
           ${{ steps.check.outputs.summary }}
 
           ---
-          Data sourced from [PaloAltoVersions.json](https://github.com/mrjcap/panos-versions/blob/master/PaloAltoVersions.json)
+          Data sourced from [PaloAltoVersions.json](https://github.com/${{ github.repository }}/blob/master/${{ env.JSON_FILE }})
           EOF
           )"
