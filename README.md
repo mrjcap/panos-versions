@@ -2,6 +2,8 @@
 
 This repository maintains a **JSON file** containing metadata about the latest available **PAN-OS versions** for Palo Alto Networks firewalls.
 
+[![Update endoflife.date PAN-OS](https://github.com/mrjcap/panos-versions/actions/workflows/update-endoflife.yml/badge.svg)](https://github.com/mrjcap/panos-versions/actions/workflows/update-endoflife.yml)
+
 ---
 
 ## 📄 Overview
