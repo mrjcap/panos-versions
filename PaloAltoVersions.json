@@ -1,5 +1,75 @@
 [
   {
+    "version": "10.2.16-h7",
+    "size-kb": "548963",
+    "released-on": "2026/05/13 10:37:26",
+    "latest": "no",
+    "sha256": "771507876963718ba979dc3d3593376d2cdc84b6ddd79560e4c5c0e9beef4079"
+  },
+  {
+    "version": "12.1.4-h5",
+    "size-kb": "825665",
+    "released-on": "2026/05/12 15:40:58",
+    "latest": "no",
+    "sha256": "5f57be5d1771020b85a02075fdd53e2e09f26dd0824e9139beedfceca6f08487"
+  },
+  {
+    "version": "10.2.10-h36",
+    "size-kb": "519036",
+    "released-on": "2026/05/12 14:08:46",
+    "latest": "no",
+    "sha256": "9e893d731395d7890b0f2609354979a47a96e6e805aba705da89702c3043c486"
+  },
+  {
+    "version": "11.1.4-h33",
+    "size-kb": "945392",
+    "released-on": "2026/05/12 08:04:34",
+    "latest": "no",
+    "sha256": "70680b9dc7eb417b4c54d1e1f5d589e725897abb82e4bec137ebe57f9e1e418e"
+  },
+  {
+    "version": "10.2.18-h6",
+    "size-kb": "565673",
+    "released-on": "2026/05/11 07:46:50",
+    "latest": "no",
+    "sha256": "d05ec4db0db2268fcd7c1b1902a2738c105dd8fc0f4a8b68884ec1042e16a8e4"
+  },
+  {
+    "version": "11.2.7-h13",
+    "size-kb": "987259",
+    "released-on": "2026/05/10 19:30:49",
+    "latest": "no",
+    "sha256": "51e53696d281a1a2d170ee2f34afee18da9b41bd2f0f78304ac84ca95148b06d"
+  },
+  {
+    "version": "11.2.10-h6",
+    "size-kb": "1008758",
+    "released-on": "2026/05/10 18:13:40",
+    "latest": "no",
+    "sha256": "013e9797ce01b4f581e46cfe85d9acb91ea38ae48eb0a325e35bfded65a860bb"
+  },
+  {
+    "version": "11.1.6-h32",
+    "size-kb": "963338",
+    "released-on": "2026/05/10 17:54:19",
+    "latest": "no",
+    "sha256": "ace2a4b89173f53c1207f92f13fca5aecf28e34849226c4a406eae6e65eae550"
+  },
+  {
+    "version": "11.1.10-h25",
+    "size-kb": "1006373",
+    "released-on": "2026/05/10 17:42:59",
+    "latest": "no",
+    "sha256": "89485fcae5999ce3ca2c949b6708b422f760d97a9ce2ee530c502c8b99d1c6c9"
+  },
+  {
+    "version": "11.1.13-h5",
+    "size-kb": "1019344",
+    "released-on": "2026/05/10 17:19:06",
+    "latest": "no",
+    "sha256": "883869b81aceee3436b7eed6e447f7c2312d9b370c36c0d3791d3bda8b357b58"
+  },
+  {
     "version": "11.1.4-h32",
     "size-kb": "587595",
     "released-on": "2026/04/16 09:25:04",
