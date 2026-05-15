@@ -1,6 +1,6 @@
 # PAN-OS Version Tracker
 
-This repository maintains a **JSON file** containing metadata about the latest available **PAN-OS versions** for Palo Alto Networks firewalls.
+This repository maintains a **JSON file** containing metadata about available **PAN-OS versions** for Palo Alto Networks firewalls, including whether a release is marked by PAN as **preferred** or **base**.
 
 [![Update endoflife.date PAN-OS](https://github.com/mrjcap/panos-versions/actions/workflows/update-endoflife.yml/badge.svg)](https://github.com/mrjcap/panos-versions/actions/workflows/update-endoflife.yml)
 
@@ -11,88 +11,186 @@ This repository maintains a **JSON file** containing metadata about the latest a
 A local script (not included in this repository) performs the following tasks:
 
 1. **Connects** to a Palo Alto Networks firewall via the **PAN-OS XML API**.
-2. **Fetches** information about the latest available PAN-OS versions.
-3. **Updates** a local JSON file with the version data.
-4. **Commits & pushes** the updated file to this GitHub repository.
+2. **Fetches** information about available PAN-OS versions.
+3. **Retrieves** PAN-provided release guidance using:
+- `request system software info preferred`
+- `request system software info base`
+4. **Updates** a local JSON file with the version data.
+5. **Commits & pushes** the updated file to this GitHub repository.
+
+The JSON output is intended to provide a machine-readable source of truth for:
+- Available PAN-OS releases.
+- PAN-designated **preferred** releases.
+- PAN-designated **base** releases.
+- Automation and reporting workflows that depend on version metadata.
 
 ---
 
 ## 📁 Repository Contents
 
-- `panos_versions.json`: Machine-readable metadata of available PAN-OS versions (see below).
+- `PaloAltoVersions.json`: Machine-readable metadata of available PAN-OS versions.
 
-> 🔒 **Note:** This repository contains **only** the version metadata file.  
+> 🔒 **Note:** This repository contains **only** the version metadata file.
 > The automation script that generates and uploads this file is **not included**.
 
 ---
 
 ## 📐 JSON Schema Definition
 
-Each entry in the `panos_versions.json` file adheres to the following structure:
+Each entry in the `PaloAltoVersions.json` file adheres to the following structure:
+
 ```json
 {
-  "version": "string (e.g. '11.2.6')",
-  "size-kb": "string (numeric, in kilobytes)",
-  "released-on": "string (format: 'YYYY/MM/DD HH:mm:ss')",
-  "latest": "string ('yes' or 'no')",
-  "sha256": "string | null"
+"version": "string (e.g. '11.2.6')",
+"size-kb": "string (numeric, in kilobytes)",
+"released-on": "string (format: 'YYYY/MM/DD HH:mm:ss')",
+"latest": "string ('yes' or 'no')",
+"sha256": "string | null",
+"preferred": "boolean",
+"base": "boolean"
 }
 ```
+
+### Field descriptions
+
 - `version`: PAN-OS version string.
-- `size-kb`: Package size in kilobytes as string.
-- `released-on`: Release timestamp from the firewall.
-- `latest`: Indicates if this is the most recent release.
-- `sha256`: Checksum of the image (nullable if unavailable).
+- `size-kb`: Package size in kilobytes as a string.
+- `released-on`: Release timestamp reported by the firewall.
+- `latest`: Indicates whether the version is marked as the most recent available release.
+- `sha256`: Image checksum, nullable if unavailable.
+- `preferred`: Indicates whether PAN marks the release as a **preferred** version.
+- `base`: Indicates whether PAN marks the release as a **base** version.
+
+### Notes
+
+- A release can be:
+- `preferred: true`
+- `base: true`
+- both `false`
+- A release with both `preferred: false` and `base: false` is simply **not currently designated** as preferred or base.
+- The `preferred` and `base` flags are refreshed on each run so existing entries can be updated when PAN changes release guidance.
 
 ---
 
 ## 🧪 JSON Example
+
 ```json
 [
   {
-    "version": "11.2.6",
-    "size-kb": "979359",
-    "released-on": "2025/05/07 10:12:09",
-    "latest": "yes",
-    "sha256": null
+  "version": "11.1.13-h3",
+  "size-kb": "597466",
+  "released-on": "2026/03/18 13:43:07",
+  "latest": "no",
+  "sha256": "f772650f63db870b6019fcb45ae4f11e13538310b2fa7c181ed1530010631cd5",
+  "preferred": true,
+  "base": false
   },
   {
-    "version": "10.1.14-h14",
-    "size-kb": "433587",
-    "released-on": "2025/05/05 13:41:38",
-    "latest": "no",
-    "sha256": "f5897a8ca0564ac5843de63dff49157eb8049cab4153128cf1864616385c682c"
+  "version": "11.1.0",
+  "size-kb": "666128",
+  "released-on": "2023/11/02 12:02:50",
+  "latest": "no",
+  "sha256": "888f47865c0a4148627a25cc0ede21287747d57133f10cbe1438eaa6210b589d",
+  "preferred": false,
+  "base": true
+  },
+  {
+  "version": "11.1.14",
+  "size-kb": "599009",
+  "released-on": "2026/04/15 15:10:57",
+  "latest": "yes",
+  "sha256": "2feaa571f62a31c476f3bd08490682509437c1f25c5a203d413a03b70093f6c0",
+  "preferred": false,
+  "base": false
   }
 ]
 ```
+
 ---
 
 ## 🛠️ Example Usage
 
-This JSON file can be consumed by external scripts for CI/CD pipelines, monitoring, or reporting.
+This JSON file can be consumed by external scripts for CI/CD pipelines, monitoring, reporting, or release selection logic.
+
+### PowerShell example
 
 Example in PowerShell:
 ```powershell
 # Load JSON data
-$panosVersions = Get-Content -Raw -Path '.\panos_versions.json' | ConvertFrom-Json
+$panosVersions = Get-Content -Raw -Path '.\PaloAltoVersions.json' | ConvertFrom-Json
 
 # Get the latest version
 $latest = $panosVersions | Where-Object { $_.latest -eq 'yes' }
 
-Write-Host "Latest PAN-OS version is: $($latest.version)"
+# Get preferred versions
+$preferred = $panosVersions | Where-Object { $_.preferred -eq $true }
+
+# Get base versions
+$base = $panosVersions | Where-Object { $_.base -eq $true }
+
+Write-Host "Latest PAN-OS version(s): $($latest.version -join ', ')"
+Write-Host "Preferred PAN-OS version(s): $($preferred.version -join ', ')"
+Write-Host "Base PAN-OS version(s): $($base.version -join ', ')"
 ```
+
+### Fetch directly from GitHub
+
 ```powershell
 Invoke-WebRequest 'https://raw.githubusercontent.com/mrjcap/panos-versions/master/PaloAltoVersions.json' | ConvertFrom-Json
 ```
+
+### Example selection logic
+
+```powershell
+# Example: choose preferred releases first
+$recommended = $panosVersions | Where-Object { $_.preferred -eq $true }
+
+if (-not $recommended) {
+$recommended = $panosVersions | Where-Object { $_.base -eq $true }
+}
+
+$recommended | Select-Object version, preferred, base, latest
+```
+
+---
+
+## 🔄 How release guidance works
+
+PAN-OS now exposes release guidance through dedicated commands that distinguish between:
+
+- **Preferred** releases, versions PAN currently recommends.
+- **Base** releases, baseline versions typically required before upgrading within a major release family.
+
+The automation uses these API equivalents:
+
+### Preferred releases
+
+```text
+https://<firewall>/api/?type=op&cmd=<request><system><software><info><preferred></preferred></info></software></system></request>
+```
+
+### Base releases
+
+```text
+https://<firewall>/api/?type=op&cmd=<request><system><software><info><base></base></info></software></system></request>
+```
+
+These are evaluated alongside the standard software check response so the JSON file reflects both:
+- version availability metadata, and
+- PAN support guidance metadata.
+
 ---
 
 ## ✅ Validation & Integrity
 
-To validate the schema:
+To validate the data:
 
-- Ensure all required fields are present and properly typed.
-- Confirm SHA256 hash matches downloaded image (if provided).
-- Use tools like jq, ajv, or PowerShell validation functions.
+- Ensure all required fields are present and correctly typed.
+- Confirm `preferred` and `base` are booleans.
+- Confirm `released-on` matches the expected `YYYY/MM/DD HH:mm:ss` format.
+- Confirm `latest` is either `yes` or `no`.
+- Confirm `sha256` matches the downloaded image, when present.
+- Use tools such as `jq`, `ajv`, or PowerShell validation functions.
 
 ---
 
@@ -120,6 +218,14 @@ gh workflow run update-endoflife.yml --repo mrjcap/panos-versions
 | Secret | Scope | Purpose |
 |---|---|---|
 | `ENDOFLIFE_PAT` | `public_repo` | Push to fork and create PRs against upstream |
+
+---
+
+## ℹ️ Notes
+
+- This repository is intended for **reference**, **version visibility**, and **automation integration**.
+- The source firewall may update release guidance over time, so `preferred` and `base` values are not static and may change between runs.
+- Existing JSON entries are updated when PAN changes release designation, not only when new versions appear.
 
 ---
 
