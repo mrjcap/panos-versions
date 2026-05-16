@@ -1,5 +1,23 @@
 [
   {
+    "version": "10.2.13-h21",
+    "size-kb": "545865",
+    "released-on": "2026/05/15 11:19:21",
+    "latest": "no",
+    "sha256": "ad983bf0d4df76663b3ffd171533e3e3d78dd2723846e5ab614da0c1dda0ef74",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "12.1.4-h6",
+    "size-kb": "825615",
+    "released-on": "2026/05/15 09:53:10",
+    "latest": "no",
+    "sha256": "26d4b8e08d71752c149b3bc91b9f3c8bae370a068ffebccce02a52bb4e8bcbe8",
+    "preferred": false,
+    "base": false
+  },
+  {
     "version": "11.2.7-h14",
     "size-kb": "987221",
     "released-on": "2026/05/14 17:24:00",
