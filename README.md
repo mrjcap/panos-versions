@@ -13,12 +13,14 @@ A local script (not included in this repository) performs the following tasks:
 1. **Connects** to a Palo Alto Networks firewall via the **PAN-OS XML API**.
 2. **Fetches** information about available PAN-OS versions.
 3. **Retrieves** PAN-provided release guidance using:
+
 - `request system software info preferred`
 - `request system software info base`
-4. **Updates** a local JSON file with the version data.
-5. **Commits & pushes** the updated file to this GitHub repository.
+1. **Updates** a local JSON file with the version data.
+2. **Commits & pushes** the updated file to this GitHub repository.
 
 The JSON output is intended to provide a machine-readable source of truth for:
+
 - Available PAN-OS releases.
 - PAN-designated **preferred** releases.
 - PAN-designated **base** releases.
@@ -115,6 +117,7 @@ This JSON file can be consumed by external scripts for CI/CD pipelines, monitori
 ### PowerShell example
 
 Example in PowerShell:
+
 ```powershell
 # Load JSON data
 $panosVersions = Get-Content -Raw -Path '.\PaloAltoVersions.json' | ConvertFrom-Json
@@ -176,6 +179,7 @@ https://<firewall>/api/?type=op&cmd=<request><system><software><info><base></bas
 ```
 
 These are evaluated alongside the standard software check response so the JSON file reflects both:
+
 - version availability metadata, and
 - PAN support guidance metadata.
 
