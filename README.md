@@ -16,6 +16,7 @@ A local script (not included in this repository) performs the following tasks:
 
 - `request system software info preferred`
 - `request system software info base`
+
 1. **Updates** a local JSON file with the version data.
 2. **Commits & pushes** the updated file to this GitHub repository.
 
@@ -43,13 +44,13 @@ Each entry in the `PaloAltoVersions.json` file adheres to the following structur
 
 ```json
 {
-"version": "string (e.g. '11.2.6')",
-"size-kb": "string (numeric, in kilobytes)",
-"released-on": "string (format: 'YYYY/MM/DD HH:mm:ss')",
-"latest": "string ('yes' or 'no')",
-"sha256": "string | null",
-"preferred": "boolean",
-"base": "boolean"
+  "version": "string (e.g. '11.2.6')",
+  "size-kb": "string (numeric, in kilobytes)",
+  "released-on": "string (format: 'YYYY/MM/DD HH:mm:ss')",
+  "latest": "string ('yes' or 'no')",
+  "sha256": "string | null",
+  "preferred": "boolean",
+  "base": "boolean"
 }
 ```
 
@@ -79,31 +80,31 @@ Each entry in the `PaloAltoVersions.json` file adheres to the following structur
 ```json
 [
   {
-  "version": "11.1.13-h3",
-  "size-kb": "597466",
-  "released-on": "2026/03/18 13:43:07",
-  "latest": "no",
-  "sha256": "f772650f63db870b6019fcb45ae4f11e13538310b2fa7c181ed1530010631cd5",
-  "preferred": true,
-  "base": false
+    "version": "11.1.13-h3",
+    "size-kb": "597466",
+    "released-on": "2026/03/18 13:43:07",
+    "latest": "no",
+    "sha256": "f772650f63db870b6019fcb45ae4f11e13538310b2fa7c181ed1530010631cd5",
+    "preferred": true,
+    "base": false
   },
   {
-  "version": "11.1.0",
-  "size-kb": "666128",
-  "released-on": "2023/11/02 12:02:50",
-  "latest": "no",
-  "sha256": "888f47865c0a4148627a25cc0ede21287747d57133f10cbe1438eaa6210b589d",
-  "preferred": false,
-  "base": true
+    "version": "11.1.0",
+    "size-kb": "666128",
+    "released-on": "2023/11/02 12:02:50",
+    "latest": "no",
+    "sha256": "888f47865c0a4148627a25cc0ede21287747d57133f10cbe1438eaa6210b589d",
+    "preferred": false,
+    "base": true
   },
   {
-  "version": "11.1.14",
-  "size-kb": "599009",
-  "released-on": "2026/04/15 15:10:57",
-  "latest": "yes",
-  "sha256": "2feaa571f62a31c476f3bd08490682509437c1f25c5a203d413a03b70093f6c0",
-  "preferred": false,
-  "base": false
+    "version": "11.1.14",
+    "size-kb": "599009",
+    "released-on": "2026/04/15 15:10:57",
+    "latest": "yes",
+    "sha256": "2feaa571f62a31c476f3bd08490682509437c1f25c5a203d413a03b70093f6c0",
+    "preferred": false,
+    "base": false
   }
 ]
 ```
@@ -219,8 +220,8 @@ gh workflow run update-endoflife.yml --repo mrjcap/panos-versions
 
 ### Required secret
 
-| Secret | Scope | Purpose |
-|---|---|---|
+| Secret          | Scope         | Purpose                                      |
+| --------------- | ------------- | -------------------------------------------- |
 | `ENDOFLIFE_PAT` | `public_repo` | Push to fork and create PRs against upstream |
 
 ---
