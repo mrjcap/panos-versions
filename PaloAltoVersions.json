@@ -1,5 +1,26 @@
 [
   {
+    "version": "11.2.10-h13",
+    "released-on": "2026/07/29 11:55:35",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.7-h19",
+    "released-on": "2026/07/29 11:31:09",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.6-h36",
+    "released-on": "2026/07/27 23:27:48",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
     "version": "12.1.7-h3",
     "released-on": "2026/07/23 13:43:10",
     "latest": "no",
