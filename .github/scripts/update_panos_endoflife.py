@@ -10,7 +10,9 @@ import argparse
 import json
 import re
 import sys
+import urllib.request
 from datetime import datetime
+
 
 
 def parse_version(version_str):
@@ -92,7 +94,9 @@ def _normalize_key(key):
 def load_json_versions(json_path):
     """Load PaloAltoVersions.json and find the latest version per release cycle.
 
-    Returns dict: {"12.1": {"version": "12.1.4-h2", "date": "2026-02-04"}, ...}
+    Returns dict: {
+        "12.1": {"version": "12.1.8", "date": "2026-07-07", "min_date": "2025-08-28"}, ...
+    }
     Accepts both PascalCase keys (from PowerShell) and kebab-case keys.
     """
     raw = open(json_path, "rb").read()
@@ -121,9 +125,18 @@ def load_json_versions(json_path):
             entry["released-on"], "%Y/%m/%d %H:%M:%S"
         ).strftime("%Y-%m-%d")
 
-        # Keep only the highest version per cycle
-        if cycle not in cycles or parsed > parse_version(cycles[cycle]["version"]):
-            cycles[cycle] = {"version": version_str, "date": released_date}
+        if cycle not in cycles:
+            cycles[cycle] = {
+                "version": version_str,
+                "date": released_date,
+                "min_date": released_date,
+            }
+        else:
+            if parsed > parse_version(cycles[cycle]["version"]):
+                cycles[cycle]["version"] = version_str
+                cycles[cycle]["date"] = released_date
+            if released_date < cycles[cycle]["min_date"]:
+                cycles[cycle]["min_date"] = released_date
 
     return cycles
 
@@ -166,15 +179,71 @@ def parse_md_releases(content):
     return releases
 
 
-def apply_updates(content, releases, json_cycles):
+def fetch_paloalto_eol_dates():
+    """Fetch releaseDate and eol date mapping per cycle from Palo Alto EOL summary page.
+
+    Returns dict: {"12.1": {"releaseDate": "2025-08-28", "eol": "2028-08-28"}, ...}
+    """
+    url = "https://www.paloaltonetworks.com/services/support/end-of-life-announcements/end-of-life-summary"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            html = resp.read().decode("utf-8")
+    except Exception as e:
+        print(f"Warning: Failed to fetch Palo Alto EOL page: {e}", file=sys.stderr)
+        return {}
+
+    eol_map = {}
+    tables = re.findall(r"<table.*?>(.*?)</table>", html, re.DOTALL)
+    for t in tables:
+        if "PAN-OS" not in t:
+            continue
+        rows = re.findall(r"<tr.*?>(.*?)</tr>", t, re.DOTALL)
+        for r in rows:
+            cols = [
+                re.sub(r"\s+", " ", re.sub(r"<.*?>", "", c)).strip()
+                for c in re.findall(r"<t[dh].*?>(.*?)</t[dh]>", r, re.DOTALL)
+            ]
+            if len(cols) >= 3:
+                cycle_str = cols[0]
+                rel_date_str = cols[1]
+                eol_date_str = cols[2]
+
+                m_cycle = re.match(r"^(\d+\.\d+)", cycle_str)
+                if not m_cycle:
+                    continue
+                cycle = m_cycle.group(1)
+
+                def parse_date(d_str):
+                    clean_d = re.sub(r"[^a-zA-Z0-9,\s]", "", d_str).strip()
+                    try:
+                        dt = datetime.strptime(clean_d, "%B %d, %Y")
+                        return dt.strftime("%Y-%m-%d")
+                    except ValueError:
+                        return None
+
+                rel_date = parse_date(rel_date_str)
+                eol_date = parse_date(eol_date_str)
+                if rel_date:
+                    eol_map[cycle] = {
+                        "releaseDate": rel_date,
+                        "eol": eol_date if eol_date else "false",
+                    }
+    return eol_map
+
+
+def apply_updates(content, releases, json_cycles, eol_map=None):
     """Apply version updates to the pan-os.md content string.
 
     Returns (updated_content, list_of_change_descriptions).
     """
     changes = []
-    # Process in reverse order so offsets remain valid
+
+    # 1. Update existing release cycles in pan-os.md
+    existing_cycles = set()
     for release in reversed(releases):
         cycle = release["releaseCycle"]
+        existing_cycles.add(cycle)
         if cycle not in json_cycles:
             continue
 
@@ -214,7 +283,73 @@ def apply_updates(content, releases, json_cycles):
         content = content[: release["_start"]] + updated_block + content[release["_end"] :]
         changes.append(f"{cycle}: {current_version} -> {new_version}")
 
+    # 2. Check for new release cycles in json_cycles missing from pan-os.md
+    missing_cycles = [c for c in json_cycles if c not in existing_cycles]
+    if missing_cycles:
+        if eol_map is None:
+            eol_map = fetch_paloalto_eol_dates()
+
+        def cycle_key(c):
+            return list(map(int, c.split(".")))
+
+        # Sort missing cycles in descending numeric order
+        missing_cycles.sort(key=cycle_key, reverse=True)
+
+        for cycle in missing_cycles:
+            version_str = json_cycles[cycle]["version"]
+            latest_date = json_cycles[cycle]["date"]
+            url = build_release_notes_url(version_str)
+
+            # Determine releaseDate:
+            # 1) Official scraped releaseDate from Palo Alto EOL summary page if available
+            # 2) Fallback to earliest released-on date in PaloAltoVersions.json for this cycle
+            if cycle in eol_map and eol_map[cycle].get("releaseDate"):
+                rel_date = eol_map[cycle]["releaseDate"]
+            else:
+                rel_date = json_cycles[cycle].get("min_date", latest_date)
+
+            # Determine eol:
+            # 1) Official scraped eol date from Palo Alto EOL summary page if available
+            # 2) Fallback to false (no guessing or extrapolating EOL date without official proof)
+            if cycle in eol_map and eol_map[cycle].get("eol") and eol_map[cycle]["eol"] != "false":
+                eol_date = eol_map[cycle]["eol"]
+            else:
+                eol_date = "false"
+
+            new_block_lines = [
+                f'  - releaseCycle: "{cycle}"',
+                f"    releaseDate: {rel_date}",
+                f"    eol: {eol_date}",
+                f'    latest: "{version_str}"',
+                f"    latestReleaseDate: {latest_date}",
+            ]
+            if url:
+                new_block_lines.append(f"    link: {url}")
+            new_block = "\n".join(new_block_lines) + "\n\n"
+
+            # Re-parse releases from the updated content to obtain accurate offsets
+            current_releases = parse_md_releases(content)
+
+            insert_pos = None
+            for r in current_releases:
+                r_cycle = r["releaseCycle"]
+                if cycle_key(cycle) > cycle_key(r_cycle):
+                    insert_pos = r["_start"]
+                    break
+
+            if insert_pos is not None:
+                content = content[:insert_pos] + new_block + content[insert_pos:]
+            else:
+                if current_releases:
+                    last_end = current_releases[-1]["_end"]
+                    content = content[:last_end] + "\n" + new_block + content[last_end:]
+                else:
+                    content = content + "\n" + new_block
+
+            changes.append(f"Added new release cycle {cycle}: {version_str}")
+
     return content, changes
+
 
 
 def main():
