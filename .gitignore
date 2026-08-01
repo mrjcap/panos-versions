@@ -1,3 +1,4 @@
+.agents/*
 .claude/*
 graphify-out/
 __pycache__/
