@@ -31,7 +31,7 @@
     "version": "12.1.7-h3",
     "released-on": "2026/07/23 13:43:10",
     "latest": "no",
-    "preferred": false,
+    "preferred": true,
     "base": false
   },
   {
