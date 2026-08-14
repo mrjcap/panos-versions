@@ -1,5 +1,12 @@
 [
   {
+    "version": "12.1.9",
+    "released-on": "2026/08/13 09:19:54",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
     "version": "11.2.13-h1",
     "released-on": "2026/08/12 14:11:33",
     "latest": "no",
