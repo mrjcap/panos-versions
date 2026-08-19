@@ -1,5 +1,19 @@
 [
   {
+    "version": "11.1.13-h11",
+    "released-on": "2026/08/18 09:13:48",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.10-h32",
+    "released-on": "2026/08/18 08:56:06",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
     "version": "12.1.9",
     "released-on": "2026/08/13 09:19:54",
     "latest": "no",
