@@ -1,5 +1,12 @@
 [
   {
+    "version": "12.2.3",
+    "released-on": "2026/08/27 16:31:28",
+    "latest": "yes",
+    "preferred": false,
+    "base": false
+  },
+  {
     "version": "11.1.13-h11",
     "released-on": "2026/08/18 09:13:48",
     "latest": "no",
@@ -44,7 +51,7 @@
   {
     "version": "12.2.2",
     "released-on": "2026/07/30 08:18:07",
-    "latest": "yes",
+    "latest": "no",
     "preferred": false,
     "base": false
   },
