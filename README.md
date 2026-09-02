@@ -1,77 +1,21 @@
-# PAN-OS Version Tracker
+# PAN-OS version tracker
 
-This repository maintains a **JSON file** containing metadata about available **PAN-OS versions** for Palo Alto Networks firewalls, including whether a release is marked by PAN as **preferred** or **base**.
+Tracks available Palo Alto Networks PAN-OS releases in a single JSON file,
+including whether Palo Alto marks a release as preferred or base.
 
 [![Update endoflife.date PAN-OS](https://github.com/mrjcap/panos-versions/actions/workflows/update-endoflife.yml/badge.svg)](https://github.com/mrjcap/panos-versions/actions/workflows/update-endoflife.yml)
 
----
+## How it works
 
-## 📄 Overview
+An off-repo job queries a live firewall via the PAN-OS XML API, pulls the
+current software catalog along with release guidance, and commits the updated
+[`PaloAltoVersions.json`](./PaloAltoVersions.json) to this repository.
 
-A local script (not included in this repository) performs the following tasks:
+The updater script runs privately and is not included in this repository.
 
-1. **Connects** to a Palo Alto Networks firewall via the **PAN-OS XML API**.
-2. **Fetches** information about available PAN-OS versions.
-3. **Retrieves** PAN-provided release guidance using:
+## Data format
 
-- `request system software info preferred`
-- `request system software info base`
-
-1. **Updates** a local JSON file with the version data.
-2. **Commits & pushes** the updated file to this GitHub repository.
-
-The JSON output is intended to provide a machine-readable source of truth for:
-
-- Available PAN-OS releases.
-- PAN-designated **preferred** releases.
-- PAN-designated **base** releases.
-- Automation and reporting workflows that depend on version metadata.
-
----
-
-## 📁 Repository Contents
-
-- `PaloAltoVersions.json`: Machine-readable metadata of available PAN-OS versions.
-
-> 🔒 **Note:** This repository contains **only** the version metadata file.
-> The automation script that generates and uploads this file is **not included**.
-
----
-
-## 📐 JSON Schema Definition
-
-Each entry in the `PaloAltoVersions.json` file adheres to the following structure:
-
-```json
-{
-  "version": "string (e.g. '11.2.6')",
-  "released-on": "string (format: 'YYYY/MM/DD HH:mm:ss')",
-  "latest": "string ('yes' or 'no')",
-  "preferred": "boolean",
-  "base": "boolean"
-}
-```
-
-### Field descriptions
-
-- `version`: PAN-OS version string.
-- `released-on`: Release timestamp reported by the firewall.
-- `latest`: Indicates whether the version is marked as the most recent available release.
-- `preferred`: Indicates whether PAN marks the release as a **preferred** version.
-- `base`: Indicates whether PAN marks the release as a **base** version.
-
-### Notes
-
-- A release can be:
-- `preferred: true`
-- `base: true`
-- both `false`
-- A release with both `preferred: false` and `base: false` is simply **not currently designated** as preferred or base.
-- The `preferred` and `base` flags are refreshed on each run so existing entries can be updated when PAN changes release guidance.
-
----
-
-## 🧪 JSON Example
+`PaloAltoVersions.json` contains a flat array of release objects:
 
 ```json
 [
@@ -88,139 +32,91 @@ Each entry in the `PaloAltoVersions.json` file adheres to the following structur
     "latest": "no",
     "preferred": false,
     "base": true
-  },
-  {
-    "version": "11.1.14",
-    "released-on": "2026/04/15 15:10:57",
-    "latest": "yes",
-    "preferred": false,
-    "base": false
   }
 ]
 ```
 
----
+### Fields
 
-## 🛠️ Example Usage
+- `version`: Release string (e.g. `11.2.6` or `11.1.13-h3`).
+- `released-on`: Release timestamp from the firewall (`YYYY/MM/DD HH:mm:ss`).
+- `latest`: `"yes"` if this is the newest release in the feed, otherwise `"no"`.
+- `preferred`: `true` if Palo Alto currently recommends this release for production.
+- `base`: `true` if this is a baseline image required before installing
+  maintenance releases in the feature family.
 
-This JSON file can be consumed by external scripts for CI/CD pipelines, monitoring, reporting, or release selection logic.
+A release has both flags set to `false` when it is neither a base image nor
+currently preferred. Flags update on every run as Palo Alto adjusts guidance.
 
-### PowerShell example
+## Usage examples
 
-Example in PowerShell:
+### Read local JSON with PowerShell
 
 ```powershell
-# Load JSON data
 $panosVersions = Get-Content -Raw -Path '.\PaloAltoVersions.json' | ConvertFrom-Json
 
-# Get the latest version
-$latest = $panosVersions | Where-Object { $_.latest -eq 'yes' }
-
-# Get preferred versions
+# Filter preferred releases
 $preferred = $panosVersions | Where-Object { $_.preferred -eq $true }
-
-# Get base versions
-$base = $panosVersions | Where-Object { $_.base -eq $true }
-
-Write-Host "Latest PAN-OS version(s): $($latest.version -join ', ')"
-Write-Host "Preferred PAN-OS version(s): $($preferred.version -join ', ')"
-Write-Host "Base PAN-OS version(s): $($base.version -join ', ')"
+$preferred | Select-Object version, released-on, latest
 ```
 
 ### Fetch directly from GitHub
 
 ```powershell
-Invoke-WebRequest 'https://raw.githubusercontent.com/mrjcap/panos-versions/master/PaloAltoVersions.json' | ConvertFrom-Json
+$url = 'https://raw.githubusercontent.com/mrjcap/panos-versions/master/PaloAltoVersions.json'
+$panosVersions = Invoke-RestMethod -Uri $url
 ```
 
-### Example selection logic
+### Select a target release
 
 ```powershell
-# Example: choose preferred releases first
-$recommended = $panosVersions | Where-Object { $_.preferred -eq $true }
-
-if (-not $recommended) {
-$recommended = $panosVersions | Where-Object { $_.base -eq $true }
+# Pick preferred releases first, fall back to base
+$target = $panosVersions | Where-Object { $_.preferred -eq $true }
+if (-not $target) {
+    $target = $panosVersions | Where-Object { $_.base -eq $true }
 }
 
-$recommended | Select-Object version, preferred, base, latest
+$target | Select-Object version, preferred, base, latest
 ```
 
----
+## Release guidance endpoints
 
-## 🔄 How release guidance works
+Palo Alto exposes release guidance through operational CLI commands and their
+XML API counterparts:
 
-PAN-OS now exposes release guidance through dedicated commands that distinguish between:
+- Preferred releases: `request system software info preferred`
 
-- **Preferred** releases, versions PAN currently recommends.
-- **Base** releases, baseline versions typically required before upgrading within a major release family.
+  ```text
+  https://<firewall>/api/?type=op&cmd=<request><system><software><info><preferred></preferred></info></software></system></request>
+  ```
 
-The automation uses these API equivalents:
+- Base releases: `request system software info base`
 
-### Preferred releases
+  ```text
+  https://<firewall>/api/?type=op&cmd=<request><system><software><info><base></base></info></software></system></request>
+  ```
 
-```text
-https://<firewall>/api/?type=op&cmd=<request><system><software><info><preferred></preferred></info></software></system></request>
-```
+## Automated endoflife.date updates
 
-### Base releases
+A GitHub Actions workflow ([`update-endoflife.yml`](.github/workflows/update-endoflife.yml))
+keeps [endoflife.date](https://github.com/endoflife-date/endoflife.date) in sync:
 
-```text
-https://<firewall>/api/?type=op&cmd=<request><system><software><info><base></base></info></software></system></request>
-```
-
-These are evaluated alongside the standard software check response so the JSON file reflects both:
-
-- version availability metadata, and
-- PAN support guidance metadata.
-
----
-
-## ✅ Validation & Integrity
-
-To validate the data:
-
-- Ensure all required fields are present and correctly typed.
-- Confirm `preferred` and `base` are booleans.
-- Confirm `released-on` matches the expected `YYYY/MM/DD HH:mm:ss` format.
-- Confirm `latest` is either `yes` or `no`.
-- Use tools such as `jq`, `ajv`, or PowerShell validation functions.
-
----
-
-## 🤖 Automated endoflife.date Updates
-
-A GitHub Actions workflow automatically creates pull requests to update [endoflife.date](https://github.com/endoflife-date/endoflife.date) whenever new PAN-OS versions are pushed to this repository.
-
-### How it works
-
-1. On every push to `PaloAltoVersions.json`, the workflow runs `.github/scripts/update_panos_endoflife.py`
-2. The script compares versions in the JSON with the current state of [`products/pan-os.md`](https://github.com/endoflife-date/endoflife.date/blob/master/products/pan-os.md) in the upstream repository
-3. If a newer version is found for any release cycle, and no open `[pan-os]` PR already exists, it creates a PR with the updated version, release date, and release notes link
-4. If an open PR already exists, it skips to avoid duplicates
+1. When `PaloAltoVersions.json` updates on `master`, the workflow runs
+   `.github/scripts/update_panos_endoflife.py`.
+2. The script compares versions against upstream `products/pan-os.md`.
+3. If a newer release exists for any cycle and no open `[pan-os]` PR is pending,
+   it opens a pull request on upstream.
 
 ### Manual trigger
-
-The workflow can also be triggered manually from the Actions tab or via CLI:
 
 ```bash
 gh workflow run update-endoflife.yml --repo mrjcap/panos-versions
 ```
 
-### Required secret
+### Workflow secrets and variables
 
-| Secret          | Scope         | Purpose                                      |
-| --------------- | ------------- | -------------------------------------------- |
-| `ENDOFLIFE_PAT` | `public_repo` | Push to fork and create PRs against upstream |
-
----
-
-## ℹ️ Notes
-
-- This repository is intended for **reference**, **version visibility**, and **automation integration**.
-- The source firewall may update release guidance over time, so `preferred` and `base` values are not static and may change between runs.
-- Existing JSON entries are updated when PAN changes release designation, not only when new versions appear.
-
----
-
-Maintained for reference, version visibility, and automation integration.
+| Name | Type | Purpose |
+| --- | --- | --- |
+| `ENDOFLIFE_PAT` | Secret (`public_repo`) | Authenticates to fork and opens PRs against upstream |
+| `GIT_NAME` | Variable | Git commit author name |
+| `GIT_EMAIL` | Variable | Git commit author email |
