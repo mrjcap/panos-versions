@@ -1,5 +1,131 @@
 [
   {
+    "version": "11.2.10-h14",
+    "released-on": "2026/09/09 08:22:26",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.7-h20",
+    "released-on": "2026/09/08 22:31:43",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.15",
+    "released-on": "2026/09/08 09:32:47",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.18-h10",
+    "released-on": "2026/09/07 20:02:19",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "12.1.10",
+    "released-on": "2026/09/06 15:08:46",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "12.1.7-h5",
+    "released-on": "2026/09/06 14:07:44",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.13-h2",
+    "released-on": "2026/09/06 04:37:34",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.16-h10",
+    "released-on": "2026/09/05 10:59:51",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.13-h24",
+    "released-on": "2026/09/05 10:53:56",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.10-h40",
+    "released-on": "2026/09/05 10:47:57",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.7-h37",
+    "released-on": "2026/09/05 10:41:59",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.13-h12",
+    "released-on": "2026/09/04 23:53:56",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.10-h33",
+    "released-on": "2026/09/04 19:37:37",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.6-h38",
+    "released-on": "2026/09/04 19:29:42",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.4-h36",
+    "released-on": "2026/09/04 19:11:51",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.16-h2",
+    "released-on": "2026/09/04 18:59:05",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "12.1.4-h10",
+    "released-on": "2026/09/03 08:46:52",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.4-h21",
+    "released-on": "2026/09/02 19:37:14",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
     "version": "12.2.3",
     "released-on": "2026/08/27 16:31:28",
     "latest": "yes",
@@ -59,7 +185,7 @@
     "version": "11.2.10-h13",
     "released-on": "2026/07/29 11:55:35",
     "latest": "no",
-    "preferred": false,
+    "preferred": true,
     "base": false
   },
   {
@@ -626,7 +752,7 @@
     "version": "11.2.10-h3",
     "released-on": "2026/02/05 12:42:48",
     "latest": "no",
-    "preferred": true,
+    "preferred": false,
     "base": false
   },
   {
