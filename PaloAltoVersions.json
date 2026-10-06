@@ -38,7 +38,7 @@
     "version": "10.2.18-h10",
     "released-on": "2026/09/07 20:02:19",
     "latest": "no",
-    "preferred": false,
+    "preferred": true,
     "base": false
   },
   {
@@ -234,7 +234,7 @@
     "version": "10.2.18-h9",
     "released-on": "2026/07/21 11:38:20",
     "latest": "no",
-    "preferred": true,
+    "preferred": false,
     "base": false
   },
   {
