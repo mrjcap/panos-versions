@@ -1,5 +1,33 @@
 [
   {
+    "version": "11.1.13-h16",
+    "released-on": "2026/10/25 16:19:00",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.10-h36",
+    "released-on": "2026/10/25 16:02:47",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.6-h40",
+    "released-on": "2026/10/25 15:53:47",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.4-h38",
+    "released-on": "2026/10/25 15:37:55",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
     "version": "11.2.10-h16",
     "released-on": "2026/10/24 16:08:36",
     "latest": "no",
