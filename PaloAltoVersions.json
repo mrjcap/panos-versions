@@ -1,5 +1,40 @@
 [
   {
+    "version": "12.2.4-h1",
+    "released-on": "2026/10/26 13:32:35",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.10-h17",
+    "released-on": "2026/10/26 13:21:56",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "12.1.7-h11",
+    "released-on": "2026/10/26 12:18:07",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.16-h12",
+    "released-on": "2026/10/26 08:27:52",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.13-h27",
+    "released-on": "2026/10/26 08:00:26",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
     "version": "11.1.13-h16",
     "released-on": "2026/10/25 16:19:00",
     "latest": "no",
