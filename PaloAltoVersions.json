@@ -1,5 +1,61 @@
 [
   {
+    "version": "11.2.4-h23",
+    "released-on": "2026/10/28 13:42:19",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "12.1.10-h3",
+    "released-on": "2026/10/28 13:31:18",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "12.1.4-h13",
+    "released-on": "2026/10/28 13:10:54",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.10-h42",
+    "released-on": "2026/10/28 08:21:50",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.7-h39",
+    "released-on": "2026/10/28 08:08:23",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.16-h1",
+    "released-on": "2026/10/27 13:37:54",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.13-h4",
+    "released-on": "2026/10/27 13:31:20",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.7-h23",
+    "released-on": "2026/10/27 13:25:43",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
     "version": "12.2.4-h1",
     "released-on": "2026/10/26 13:32:35",
     "latest": "no",
