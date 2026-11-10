@@ -129,7 +129,7 @@
     "version": "10.2.18-h13",
     "released-on": "2026/10/24 15:57:20",
     "latest": "no",
-    "preferred": false,
+    "preferred": true,
     "base": false
   },
   {
@@ -318,7 +318,7 @@
     "version": "10.2.18-h10",
     "released-on": "2026/09/07 20:02:19",
     "latest": "no",
-    "preferred": true,
+    "preferred": false,
     "base": false
   },
   {
