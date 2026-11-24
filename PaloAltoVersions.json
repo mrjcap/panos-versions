@@ -1,5 +1,117 @@
 [
   {
+    "version": "11.2.4-h25",
+    "released-on": "2026/11/22 20:37:37",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.7-h25",
+    "released-on": "2026/11/22 20:21:37",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.10-h19",
+    "released-on": "2026/11/22 19:55:28",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.2.13-h6",
+    "released-on": "2026/11/22 19:16:26",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.13-h18",
+    "released-on": "2026/11/22 13:27:51",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.10-h38",
+    "released-on": "2026/11/22 13:10:02",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.6-h42",
+    "released-on": "2026/11/22 12:21:37",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.4-h40",
+    "released-on": "2026/11/22 10:10:05",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "12.1.7-h15",
+    "released-on": "2026/11/22 09:27:45",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "12.1.4-h15",
+    "released-on": "2026/11/22 08:42:14",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.7-h41",
+    "released-on": "2026/11/22 08:31:22",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.10-h45",
+    "released-on": "2026/11/21 20:50:58",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.16-h14",
+    "released-on": "2026/11/21 15:30:09",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.13-h29",
+    "released-on": "2026/11/21 15:27:51",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "10.2.18-h15",
+    "released-on": "2026/11/20 17:49:41",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
+    "version": "11.1.16-h6",
+    "released-on": "2026/11/20 11:17:03",
+    "latest": "no",
+    "preferred": false,
+    "base": false
+  },
+  {
     "version": "11.2.16-h3",
     "released-on": "2026/11/20 09:52:24",
     "latest": "no",
